@@ -1,47 +1,56 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $newTask = $("#new-task");
+var $taskDescription = $("#task-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $taskList = $("#task-list");
 
 // The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
+var taskAPI = {
+  saveTask: function(input) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/tasks/",
+      data: JSON.stringify(input)
     });
   },
-  getExamples: function() {
+  getTask: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/tasks",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteTask: function(id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
+    });
+  },
+  updateTask: function(id, input) {
+    return $.ajax({
+      url: "api/examples/" + id,
+      type: "PUT",
+      data: JSON.stringify(input)
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshTask = function() {
+  taskAPI.getTask().then(function(data) {
+    var $tasks = data.map(function(val) {
+      tasks.push(val.data);
+
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(input.text)
+        .attr("href", "/tasks/" + input.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": input.id
         })
         .append($a);
 
@@ -51,11 +60,13 @@ var refreshExamples = function() {
 
       $li.append($button);
 
+      $li.prepend($task);
+
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $taskList.empty();
+    $taskList.append($tasks);
   });
 };
 
@@ -64,22 +75,22 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var task = {
+    text: $newTask.val().trim(),
+    description: $taskDescription.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(task.text && task.description)) {
+    alert("You must enter a task!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveTask(task).then(function() {
+    refreshTask();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $newTask.val("");
+  $taskDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -89,11 +100,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteTask(idToDelete).then(function() {
+    refreshTasks();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$taskList.on("click", ".delete", handleDeleteBtnClick);
