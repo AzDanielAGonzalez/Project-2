@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Enjoy Your day</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    </head>
+    <body class="is-preload">
+        <!-- Header -->
+            <header id="header">
+                <a class="logo" href="index.html">Enjoy Your Day</a>
+                <nav>
+                    <a href="#menu">Menu</a>
+                </nav>
+            </header>
+        <!-- Nav -->
+            <nav id="menu">
+                <ul class="links">
+                    <li><a href="weather.html">Weather</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+					<li><a href="horoscope.html">Horoscope</a></li>
+					<li><a href="news.html">News</a></li>
+                </ul>
+            </nav>
+        <!-- Banner -->
+            <section id="banner">
+
+                    <img src="http://www.genehanson.com/images/photography/sunset/023_arizona_sunset_111704_06e.jpg" width= 1550px height=650px alt="Arizona Sunrise">
+                    <div class="centered">KickStart!
+                    <br><br>
+                    <p> Welcome to your day!</p> </div>
+                    
+    </section>
+        <!-- Highlights -->
+            <section class="wrapper">
+                <div class="inner">
+                    <header class="special">
+                        <h2>Categories</h2>
+                    </header>
+                    <div class="highlights">
+                        <section>
+                            <div class="content">
+                                <header>
+                                    <a href="#" class="icon fa fa-newspaper-o"><span class="label">Icon</span></a>
+                                    <h3>NEWS</h3>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="content">
+                                <header>
+                                    <a href="#" class="icon fa fa-cloud-sun"><span class="label">Icon</span></a>
+                                    <h3>WEATHER</h3>
+                                </header>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="content">
+                                <header>
+                                    <a href="#" class="icon fa fa-baseball-ball"><span class="label">Icon</span></a>
+                                    <h3>SPORTS</h3>
+                                </header>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="content">
+                                <header>
+                                    <a href="#" class="icon fas fa-star"><span class="label">Icon</span></a>
+                                    <h3>HOROSCOPES</h3>
+                                </header>
+                            </div>
+                        </section>
+                        <section>
+                            
+                                </header>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        <!-- CTA -->
+                </div>
+            </section>
+            
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+    </body>
