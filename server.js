@@ -20,6 +20,16 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+app.get("/", function(req, res) {
+  res.render("index", { Task: taskList });
+});
+app.get("/:task-name", function(req, res) {
+  for (var i = 0; i < taskList.length; i++) {
+    if ((tasks[i], name === req.params.name)) {
+      return res.render("");
+    }
+  }
+});
 
 // Routes
 require("./routes/apiRoutes")(app);
