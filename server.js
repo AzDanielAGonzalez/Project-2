@@ -21,10 +21,10 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 app.get("/", function(req, res) {
-  res.render("index", { tsks: tasks });
+  res.render("index", { Task: taskList });
 });
-app.get("/:task", function(req, res) {
-  for (var i = 0; i < tasks.length; i++) {
+app.get("/:task-name", function(req, res) {
+  for (var i = 0; i < taskList.length; i++) {
     if ((tasks[i], name === req.params.name)) {
       return res.render("");
     }
