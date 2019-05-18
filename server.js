@@ -20,7 +20,7 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-app.get("/", function(req, res) {
+app.get("api/all/tasks/", function(req, res) {
   res.render("index", { Task: taskList });
 });
 app.get("/:task-name", function(req, res) {

@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "12288221Dg",
     "database": "tasksdb",
     "host": "localhost",
     "dialect": "mysql"
@@ -9,7 +9,7 @@
   "test": {
     "username": "root",
     "password": null,
-    "database": "taskdb",
+    "database": "tasksdb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
