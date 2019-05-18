@@ -1,5 +1,5 @@
 // Get references to page elements
-var $newTask = $("#new-task");
+var $newTask = $("#task-name");
 var $taskDescription = $("#task-description");
 var $submitBtn = $("#submit");
 var $taskList = $("#task-list");
@@ -12,26 +12,33 @@ var taskAPI = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/tasks/",
+      url: "api/save/tasks",
       data: JSON.stringify(input)
     });
   },
   getTask: function() {
     return $.ajax({
-      url: "api/tasks",
+      url: "api/all/tasks/",
       type: "GET"
     });
   },
   deleteTask: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/delete/tasks/" + id,
       type: "DELETE"
     });
   },
   updateTask: function(id, input) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/update/tasks/" + id,
       type: "PUT",
+      data: JSON.stringify(input)
+    });
+  },
+  oneTask: function(id, input) {
+    return $.ajax({
+      url: "api/tasks/" + id,
+      type: "GET",
       data: JSON.stringify(input)
     });
   }
@@ -56,11 +63,11 @@ var refreshTask = function() {
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+        .text("X");
 
       $li.append($button);
 
-      $li.prepend($task);
+      $li.append($task);
 
       return $li;
     });
